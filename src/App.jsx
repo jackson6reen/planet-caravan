@@ -138,8 +138,11 @@ function App() {
       <header className="site-header">
         <div className="container header-container">
           <div className="logo-container">
-            <span className="logo-text gold-gradient-text">PLANET CARAVAN</span>
-            <span className="logo-subtext">פלאנט קראוון</span>
+            <img src="/golden_planet_logo.png" alt="Planet Caravan Logo" className="logo-img" />
+            <div className="logo-text-group">
+              <span className="logo-text gold-gradient-text">PLANET CARAVAN</span>
+              <span className="logo-subtext">פלאנט קראוון</span>
+            </div>
           </div>
           <nav className="header-nav">
             <a href="#simulator-section" className="nav-link">הדמיית פתיחה</a>
