@@ -146,7 +146,7 @@ function App() {
           </div>
           <nav className="header-nav">
             <a href="#simulator-section" className="nav-link">הדמיית פתיחה</a>
-            <a href="#pains-section" className="nav-link">כאב ופתרון</a>
+            <a href="#pains-section" className="nav-link">פתרונות</a>
             <a href="#salad-section" className="nav-link">מפרט האלמנטים</a>
             <a href="#waitlist-section" className="nav-link">הצטרפות לרשימה</a>
             <a href="#faq-section" className="nav-link">שאלות נפוצות</a>
@@ -443,57 +443,43 @@ function App() {
         </div>
       </section>
 
-      {/* Pains and Solutions Focus Section */}
+      {/* Solutions Section */}
       <section className="comparison-section" id="pains-section">
         <div className="container">
           <div className="section-header">
-            <div className="gold-badge">ההבדל בין סיוט להתקדמות חכמה</div>
-            <h2>כאבי הבנייה לעומת הפתרון המודולרי</h2>
+            <div className="gold-badge">הדרך החכמה והמהירה ביותר לחלל משלכם</div>
+            <h2>פתרונות הבנייה של פלאנט קראוון</h2>
             <p>
-              בנייה ושיפוצים בחצר הם סרט בלהות של אובדן כספים, זמן ובריאות. 
-              פלאנט קראוון מעניקה לכם אלטרנטיבה פשוטה, חסכונית ונקייה שנפרסת תוך יום אחד.
+              פלאנט קראוון מעניקה לכם אלטרנטיבה פשוטה, חסכונית ונקייה שנפרסת בשטח שלכם במהירות, ללא כאבי ראש ובלי הפתעות תקציביות.
             </p>
           </div>
 
-          <div className="comparison-grid">
-            {/* Pains */}
-            <div className="comp-card pain-card animate-hover-lift">
-              <div className="card-badge danger-badge">סיוט השיפוצים והבנייה ❌</div>
-              <h3>למה שיפוץ קבוע הוא בור ללא תחתית?</h3>
-              <ul className="comp-list">
-                <li>
-                  <span className="bullet-icon">⏳</span>
-                  <span><strong>סיוט הבירוקרטיה וההתרים:</strong> המתנה של שנים בוועדות התכנון, ריצות לעירייה, תשלום הון לאדריכלים ומודדים עוד לפני שהנחתם בלוק אחד.</span>
-                </li>
-                <li>
-                  <span className="bullet-icon">🧹</span>
-                  <span><strong>חורבן הגינה והשקט:</strong> הגינה שלכם הופכת לאתר בנייה מאובק. טרקטורים רומסים את הדשא, פועלים מסתובבים בחצר חודשים ארוכים.</span>
-                </li>
-                <li>
-                  <span className="bullet-icon">💸</span>
-                  <span><strong>עלויות בלתי צפויות וחריגות:</strong> הצעת המחיר שקיבלתם מקבלן אף פעם אינה סופית. שיפוצים תמיד גוררים חריגות של עשרות אלפי שקלים.</span>
-                </li>
-              </ul>
+          <div className="solutions-only-grid">
+            {/* Solution 1 */}
+            <div className="solution-only-card animate-hover-lift">
+              <div className="sol-card-badge">מהירות מירבית ⚡</div>
+              <h3>מוכן לשימוש תוך יום אחד</h3>
+              <p>
+                היחידה מגיעה מורכבת במלואה מהמפעל. מנוף מניח אותה במיקום שבחרתם, מחברים לתשתיות ומשתמשים בה מיד. קלי קלות.
+              </p>
             </div>
 
-            {/* Solutions */}
-            <div className="comp-card solution-card animate-hover-lift">
-              <div className="card-badge success-badge">הפתרון של פלאנט קראוון ✨</div>
-              <h3>בנייה קלה, מהירה וחסכונית</h3>
-              <ul className="comp-list">
-                <li>
-                  <span className="bullet-icon">⚡</span>
-                  <span><strong>מוכן לשימוש תוך יום אחד:</strong> היחידה מגיעה מורכבת במלואה מהמפעל. מנוף מניח אותה במיקום שבחרתם, מחברים לתשתיות ומשתמשים בה מיד. קלי קלות.</span>
-                </li>
-                <li>
-                  <span className="bullet-icon">🌻</span>
-                  <span><strong>אפס לכלוך ובלאגן:</strong> החצר שלכם נשארת נקייה וירוקה. אין ערמות חול, אין אבק בטון ואין רעשי עבודה בתוך הבית הראשי.</span>
-                </li>
-                <li>
-                  <span className="bullet-icon">💰</span>
-                  <span><strong>חיסכון מובטח במחיר ידוע:</strong> אתם חוסכים מאות אלפי שקלים ויודעים מראש את עלות היחידה וההצבה. בלי שטיקים ובלי הפתעות תקציביות.</span>
-                </li>
-              </ul>
+            {/* Solution 2 */}
+            <div className="solution-only-card animate-hover-lift">
+              <div className="sol-card-badge">שקט וניקיון 🌻</div>
+              <h3>אפס לכלוך ובלאגן</h3>
+              <p>
+                החצר שלכם נשארת נקייה וירוקה. אין ערמות חול, אין אבק בטון ואין רעשי עבודה בלתי נגמרים בתוך הבית הראשי.
+              </p>
+            </div>
+
+            {/* Solution 3 */}
+            <div className="solution-only-card animate-hover-lift">
+              <div className="sol-card-badge">פיננסי חכם 💰</div>
+              <h3>חיסכון מובטח במחיר ידוע</h3>
+              <p>
+                אתם חוסכים מאות אלפי שקלים ויודעים מראש את עלות היחידה וההצבה. בלי שטיקים ובלי הפתעות תקציביות.
+              </p>
             </div>
           </div>
         </div>

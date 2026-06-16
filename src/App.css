@@ -628,85 +628,55 @@ section {
   background-color: var(--bg-secondary);
 }
 
-.comparison-grid {
+.solutions-only-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
 }
 
-.comp-card {
+.solution-only-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-gold);
   border-radius: 16px;
-  padding: 45px;
+  padding: 45px 35px;
   position: relative;
+  text-align: right;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-.card-badge {
+.solution-only-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.15);
+}
+
+.sol-card-badge {
   position: absolute;
   top: -15px;
-  right: 40px;
-  padding: 8px 20px;
+  right: 35px;
+  padding: 6px 18px;
   border-radius: 9999px;
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.danger-badge {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.4);
-  color: #fca5a5;
-}
-
-.success-badge {
   background: var(--gold-light);
   border: 1px solid var(--gold-primary);
   color: var(--gold-secondary);
 }
 
-.comp-card h3 {
-  font-size: 26px;
-  margin-bottom: 35px;
-  margin-top: 10px;
+.solution-only-card h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  color: var(--text-primary);
 }
 
-.comp-list {
-  list-style: none;
-  padding: 0;
+.solution-only-card p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.65;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.comp-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  line-height: 1.6;
-}
-
-.bullet-icon {
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.pain-card {
-  border-color: rgba(239, 68, 68, 0.15);
-}
-
-.pain-card:hover {
-  border-color: rgba(239, 68, 68, 0.4);
-}
-
-.solution-card {
-  border-color: var(--border-gold);
-}
-
-.solution-card:hover {
-  border-color: var(--gold-primary);
-  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.08);
 }
 
 /* Terracotta Visual Vibe Section */
@@ -1130,9 +1100,9 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .comparison-grid {
+  .solutions-only-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
   }
   
   .specs-tabs-header {
