@@ -6,9 +6,6 @@ import './App.css';
 const GOOGLE_SHEET_WEBHOOK_URL = ''; 
 
 function App() {
-  // Simulator state (for the expanding caravan animation)
-  const [isExpanded, setIsExpanded] = useState(false);
-
   // Lead form quiz step states
   const [quizStep, setQuizStep] = useState(1);
   const [answers, setAnswers] = useState({
@@ -145,7 +142,7 @@ function App() {
             <span className="logo-subtext">פלאנט קראוון</span>
           </div>
           <nav className="header-nav">
-            <a href="#simulator-section" className="nav-link">הדמיית מוצר</a>
+            <a href="#simulator-section" className="nav-link">הדמיית פתיחה</a>
             <a href="#pains-section" className="nav-link">כאב ופתרון</a>
             <a href="#salad-section" className="nav-link">מפרט האלמנטים</a>
             <a href="#waitlist-section" className="nav-link">הצטרפות לרשימה</a>
@@ -168,7 +165,7 @@ function App() {
       <section className="hero-section">
         <div className="container hero-grid">
           {/* Text/Copy Column */}
-          <div className="hero-content">
+          <div className="hero-content animate-fade-in-up">
             <div className="gold-badge">אלטרנטיבת הבנייה המהירה והחסכונית ביותר לחצר</div>
             <h1 className="hero-title">
               יחידת בנייה קלה וניידת – <span className="gold-gradient-text">בלי כאבי ראש</span>
@@ -194,7 +191,7 @@ function App() {
             </div>
 
             <div className="hero-cta-group">
-              <a href="#simulator-section" className="btn-primary">הדמיית פתיחת החדר</a>
+              <a href="#simulator-section" className="btn-primary">הדמיית וידאו של פתיחת החדר</a>
               <a 
                 href="https://wa.me/972503734973?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%94%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%A8%D7%90%D7%95%D7%95%D7%A0%D7%99%20%D7%94%D7%91%D7%95%D7%98%D7%99%D7%A7%20%D7%A9%D7%9C%D7%95%D7%9B%D7%9D"
                 target="_blank" 
@@ -208,7 +205,7 @@ function App() {
 
           {/* Simple Backyard Check Form */}
           <div className="hero-visual">
-            <div className="quiz-card">
+            <div className="quiz-card animate-fade-in-up">
               {!formSubmitted ? (
                 <div>
                   <div className="quiz-header">
@@ -235,7 +232,7 @@ function App() {
                           className="quiz-opt-btn"
                           onClick={() => handleSelectOption('purpose', 'יחידת השכרה מניבה')}
                         >
-                          💸 יחידת אירוח עצמאית להשכרה ויצירת הכנסה
+                          💸 יחידת אירוח להשכרה ויצירת הכנסה נוספת
                         </button>
                         <button 
                           type="button"
@@ -249,7 +246,7 @@ function App() {
                           className="quiz-opt-btn"
                           onClick={() => handleSelectOption('purpose', 'אחר')}
                         >
-                          ⭐ סטודיו פרטי או חלל יצירתי פתוח
+                          ⭐ סטודיו פרטי או חלל עבודה חיצוני פתוח
                         </button>
                       </div>
                     </div>
@@ -379,75 +376,61 @@ function App() {
         </div>
       </section>
 
-      {/* Simulator Section (Expanding Room Caravan Graphic) */}
+      {/* Simulator Section (HTML5 Premium Lazy Loaded Video) */}
       <section className="simulator-section" id="simulator-section">
         <div className="container">
           <div className="section-header">
             <div className="gold-badge">טכנולוגיית שינוע ופריסה מתקדמת</div>
-            <h2>הדמיית פריסת החדר בשטח</h2>
+            <h2>הדמיית פתיחת חדר מתרחב</h2>
             <p>
-              היחידות שלנו נהנות מגמישות שינוע מקסימלית בכבישים, ובשטח נפרסות ליצירת חלל מרווח ללא צורך ביציקות בטון. 
-              לחצו על הכפתור כדי לראות כיצד החדר הנוסף נפתח אוטומטית.
+              צפו בטכנולוגיית הפתיחה המודולרית. היחידות שלנו משונעות במצב סגור ונוח להובלה בכבישים, 
+              ובשטח נפרסות ליצירת חלל מרווח ללא צורך ביציקות בטון.
             </p>
           </div>
 
           <div className="simulator-container glass-panel">
-            <div className="simulator-controls">
-              <button 
-                type="button" 
-                className={`btn-primary ${isExpanded ? 'active-exp' : ''}`}
-                onClick={() => setIsExpanded(!isExpanded)}
-              >
-                {isExpanded ? '🔍 החזר את היחידה למצב שינוע' : '✨ פתח חדר מתרחב אוטומטית'}
-              </button>
-              <p className="simulator-description-text">
-                היחידה משונעת במצב סגור וצר, וכשהיא ממוקמת בחצר היא נפתחת החוצה ומכפילה את שטח המרחב בצורה נקייה ומהירה.
-              </p>
+            {/* Column 1: Video simulation player */}
+            <div className="simulator-video-wrapper">
+              <video 
+                className="simulator-video"
+                src="/caravan_simulation.mp4"
+                poster="/luxury_caravan_backyard.jpg"
+                controls
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+              <div className="simulation-disclaimer">
+                ⚠️ * סרטון הדמיה בלבד להמחשה ויזואלית של פוטנציאל המרחב והפתיחה המודולרית.
+              </div>
             </div>
 
-            {/* Visual Caravan Expand Animation */}
-            <div className="caravan-simulator-wrapper">
-              <div className="caravan-graphic">
-                {/* Main Body */}
-                <div className="caravan-main-body">
-                  <span className="caravan-label">יחידת שינוע ראשית</span>
-                  <div className="wheel wheel-right"></div>
-                  <div className="wheel wheel-left"></div>
-                  
-                  {/* Expanding Room */}
-                  <div className={`caravan-expanding-room ${isExpanded ? 'expanded' : ''}`}>
-                    <span className="expanding-label">חדר מגורים / עבודה מתרחב</span>
-                    <div className="window-sim"></div>
-                  </div>
-                </div>
-
-                {/* Hitch Point */}
-                <div className="caravan-hitch"></div>
-              </div>
-
-              {/* Annotated structural elements overlay */}
-              <div className={`caravan-annotations ${isExpanded ? 'visible' : ''}`}>
-                <div className="anno-tag pos-floor">
+            {/* Column 2: Structural Elements */}
+            <div className="simulator-controls">
+              <h3>מפרט האלמנטים המודולריים המוצגים בהדמיה:</h3>
+              <div className="caravan-annotations-list">
+                <div className="anno-tag animate-hover-lift">
                   <span className="anno-dot"></span>
                   <span className="anno-text"><strong>רצפת גלריה מעץ מלא:</strong> בסיס פנימי חם, עמיד ואסתטי ברמת גימור בוטיק אמיתית.</span>
                 </div>
-                <div className="anno-tag pos-walls">
+                <div className="anno-tag animate-hover-lift">
                   <span className="anno-dot"></span>
                   <span className="anno-text"><strong>פאנלים מבודדים:</strong> בידוד תרמי מושלם בקירות לשמירה על חום וקור.</span>
                 </div>
-                <div className="anno-tag pos-interior">
+                <div className="anno-tag animate-hover-lift">
                   <span className="anno-dot"></span>
                   <span className="anno-text"><strong>חיפוי גבס פנימי:</strong> קירות פנים חלקים וישרים המוכנים לצבע או עיצוב.</span>
                 </div>
-                <div className="anno-tag pos-roof">
+                <div className="anno-tag animate-hover-lift">
                   <span className="anno-dot"></span>
                   <span className="anno-text"><strong>גג מבודד ואטום:</strong> הגנה מוחלטת מפני רטיבות, נזילות ורעשי גשם קיצוניים.</span>
                 </div>
-                <div className="anno-tag pos-plaster">
+                <div className="anno-tag animate-hover-lift">
                   <span className="anno-dot"></span>
                   <span className="anno-text"><strong>טיח יוקרתי טבעי:</strong> מעטפת טיח בגוון טרקוטה המשתלבת באופן מושלם בגינה.</span>
                 </div>
-                <div className="anno-tag pos-plug">
+                <div className="anno-tag animate-hover-lift">
                   <span className="anno-dot"></span>
                   <span className="anno-text"><strong>חיבור Plug & Play:</strong> תשתיות מובנות עם נקודות חיבור מהירות לחשמל ולמים.</span>
                 </div>
@@ -471,7 +454,7 @@ function App() {
 
           <div className="comparison-grid">
             {/* Pains */}
-            <div className="comp-card pain-card">
+            <div className="comp-card pain-card animate-hover-lift">
               <div className="card-badge danger-badge">סיוט השיפוצים והבנייה ❌</div>
               <h3>למה שיפוץ קבוע הוא בור ללא תחתית?</h3>
               <ul className="comp-list">
@@ -491,7 +474,7 @@ function App() {
             </div>
 
             {/* Solutions */}
-            <div className="comp-card solution-card">
+            <div className="comp-card solution-card animate-hover-lift">
               <div className="card-badge success-badge">הפתרון של פלאנט קראוון ✨</div>
               <h3>בנייה קלה, מהירה וחסכונית</h3>
               <ul className="comp-list">
@@ -516,7 +499,7 @@ function App() {
       {/* Modern Terracotta Visual Vibe Section */}
       <section className="vibe-showcase-section">
         <div className="container vibe-grid">
-          <div className="vibe-image-wrapper">
+          <div className="vibe-image-wrapper animate-fade-in-up">
             <img 
               src="/luxury_caravan_backyard.jpg" 
               alt="Terracotta modular caravan in green garden" 
@@ -533,15 +516,15 @@ function App() {
               מכובד ואלגנטי, שאינו נראה כמו מכולת פועלים תעשייתית אלא משפר את מראה החצר שלכם.
             </p>
             <div className="vibe-points">
-              <div className="vibe-point">
+              <div className="vibe-point animate-hover-lift">
                 <span className="point-icon">🍂</span>
                 <span><strong>גוון טרקוטה יוקרתי:</strong> טיח חיצוני עמיד ועשיר במראה אדמה חם.</span>
               </div>
-              <div className="vibe-point">
+              <div className="vibe-point animate-hover-lift">
                 <span className="point-icon">🪵</span>
-                <span><strong>חלונות עץ איכותיים:</strong> אלומיניום קליל בשילוב מסגרות עץ חמימות הניתנים להזמנה אישית.</span>
+                <span><strong>חלונות בעיצוב אישי:</strong> אלומיניום קליל בשילוב מסגרות עץ חמימות הניתנים להזמנה אישית.</span>
               </div>
-              <div className="vibe-point">
+              <div className="vibe-point animate-hover-lift">
                 <span className="point-icon">✨</span>
                 <span><strong>מבנה שטוח ונקי:</strong> קווים ישרים ומינימליזם ארכיטקטוני המעלה את ערך השימוש בנכס.</span>
               </div>
@@ -564,7 +547,7 @@ function App() {
 
           <div className="salad-grid">
             {/* Element 1 */}
-            <div className="salad-card">
+            <div className="salad-card animate-hover-lift">
               <div className="card-icon-box">🪵</div>
               <h3>רצפת גלריה מעץ מלא</h3>
               <p>בסיס פנימי חם, עמיד ואסתטי ברמת גימור בוטיק אמיתית, המונח על גבי שלדת פלדה מחוזקת וניידת:</p>
@@ -581,7 +564,7 @@ function App() {
             </div>
 
             {/* Element 2 */}
-            <div className="salad-card">
+            <div className="salad-card animate-hover-lift">
               <div className="card-icon-box">❄️</div>
               <h3>מעטפת ובידוד מתקדם</h3>
               <p>קירות ותקרה בעלי בידוד תרמי ואקוסטי מעולה למניעת חום, רטיבות ורעשים חיצוניים:</p>
@@ -598,7 +581,7 @@ function App() {
             </div>
 
             {/* Element 3 */}
-            <div className="salad-card">
+            <div className="salad-card animate-hover-lift">
               <div className="card-icon-box">🏠</div>
               <h3>גימור וחלונות בעיצוב אישי</h3>
               <p>המבנה מיוצר בסטנדרט אסתטי גבוה במיוחד המשתלב בצורה מושלמת בגינה:</p>
@@ -630,8 +613,8 @@ function App() {
         <div className="container">
           <div className="section-header">
             <div className="gold-badge">פשטות הנדסית</div>
-            <h2>פירוט האלמנטים המודולריים של המבנה</h2>
-            <p>אנו מאמינים בבנייה קלה איכותית ופשוטה. הנה המאפיינים המבניים המרכזיים של היחידות:</p>
+            <h2>פירוט האלמנרטים המודולריים של המבנה</h2>
+            <p>אנו מאמינים בבנייה קלה איכותית ופשוטה. הנה המאפיינים המרכזיים של המבנה:</p>
           </div>
 
           <div className="specs-tabs-container">
@@ -674,7 +657,7 @@ function App() {
                       <li><strong>אפס פגיעה בגינה:</strong> אין צורך ביציקות בטון, מה שמאפשר להחזיר את הגינה למצבה המקורי אם היחידה מפונה.</li>
                     </ul>
                   </div>
-                  <div className="pane-icon-large">🏠</div>
+                  <div className="pane-icon-large">🚜</div>
                 </div>
               )}
 
@@ -689,7 +672,7 @@ function App() {
                     <ul className="spec-features-list">
                       <li><strong>פאנל מבודד תרמי:</strong> שומר על טמפרטורה פנימית נוחה ומאפשר מיזוג מהיר של היחידה תוך דקות.</li>
                       <li><strong>קירות גבס פנימיים:</strong> גימור קירות חלק ונקי בדיוק כמו בבית רגיל, ללא מראה תעשייתי.</li>
-                      <li><strong>חלונות אלומיניום בהזמנה אישית:</strong> ניתן לבחור את מיקומי החלונות ועיצובם על פי כיווני האור בחצר שלכם.</li>
+                      <li><strong>חלונות בהזמנה אישית:</strong> ניתן לבחור את מיקומי החלונות ועיצובם על פי כיווני האור בחצר שלכם.</li>
                     </ul>
                   </div>
                   <div className="pane-icon-large">❄️</div>

@@ -378,7 +378,7 @@ section {
   margin-bottom: 30px;
 }
 
-/* Simulator Section & Caravan Expanding Component */
+/* Simulator Section & Caravan Video Components */
 .simulator-section {
   background-color: var(--bg-secondary);
 }
@@ -386,184 +386,69 @@ section {
 .simulator-container {
   padding: 50px;
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 40px;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 50px;
   align-items: center;
+}
+
+.simulator-video-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.8), 0 0 25px rgba(212, 175, 55, 0.1);
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.simulator-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.simulation-disclaimer {
+  padding: 12px 20px;
+  background: rgba(10, 10, 10, 0.9);
+  border-top: 1px solid var(--border-color);
+  font-size: 13px;
+  color: var(--gold-secondary);
+  font-weight: 500;
+  text-align: right;
+  line-height: 1.4;
 }
 
 .simulator-controls {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
   text-align: right;
 }
 
-.simulator-description-text {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text-secondary);
-}
-
-.active-exp {
-  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%) !important;
-  color: #000000 !important;
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3) !important;
-}
-
-/* Expandable Caravan Visual */
-.caravan-simulator-wrapper {
+.caravan-annotations-list {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  width: 100%;
-  position: relative;
-}
-
-.caravan-graphic {
-  position: relative;
-  width: 100%;
-  height: 250px;
-  border-bottom: 2px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.01);
-  border-radius: 12px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 10px;
-}
-
-.caravan-main-body {
-  position: absolute;
-  bottom: 20px;
-  right: 80px;
-  width: 200px;
-  height: 110px;
-  background: #12141c;
-  border: 2px solid var(--gold-primary);
-  border-radius: 12px 12px 0 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
-}
-
-.caravan-label {
-  font-size: 12px;
-  color: var(--gold-secondary);
-  font-weight: 700;
-  text-align: center;
-}
-
-.caravan-hitch {
-  position: absolute;
-  bottom: 20px;
-  right: 40px;
-  width: 42px;
-  height: 12px;
-  border-top: 4px solid var(--gold-primary);
-  border-left: 4px solid var(--gold-primary);
-  transform: rotate(-10deg);
-  z-index: 8;
-}
-
-.wheel {
-  position: absolute;
-  bottom: -15px;
-  width: 32px;
-  height: 32px;
-  background: #000000;
-  border: 3px solid var(--gold-primary);
-  border-radius: 50%;
-  z-index: 11;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-}
-
-.wheel-right {
-  right: 40px;
-}
-
-.wheel-left {
-  right: 120px;
-}
-
-/* The expanding modular room */
-.caravan-expanding-room {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  width: 160px;
-  height: 95px;
-  background: #1a1e29;
-  border: 2px dashed var(--gold-secondary);
-  border-radius: 8px 0 0 0;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateX(0);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
-  pointer-events: none;
-}
-
-.caravan-expanding-room.expanded {
-  opacity: 1;
-  transform: translateX(-162px);
-  pointer-events: auto;
-}
-
-.expanding-label {
-  font-size: 11px;
-  color: var(--text-secondary);
-  text-align: center;
-  padding: 5px;
-}
-
-.window-sim {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 40px;
-  height: 25px;
-  background: rgba(212, 175, 55, 0.1);
-  border: 1px solid var(--gold-primary);
-  border-radius: 4px;
-}
-
-/* Annotations for the simulator elements */
-.caravan-annotations {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  text-align: right;
-}
-
-.caravan-annotations.visible {
-  opacity: 1;
-  max-height: 500px;
-  margin-top: 20px;
-  padding: 20px;
-  border-top: 1px dashed var(--border-gold);
+  gap: 14px;
 }
 
 .anno-tag {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  background: rgba(255,255,255,0.01);
-  padding: 12px;
-  border-radius: 8px;
+  background: var(--bg-card);
+  padding: 14px 18px;
+  border-radius: 10px;
   border: 1px solid var(--border-color);
-  transition: border-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .anno-tag:hover {
   border-color: var(--gold-primary);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.08);
 }
 
 .anno-dot {
@@ -571,7 +456,7 @@ section {
   height: 8px;
   background-color: var(--gold-primary);
   border-radius: 50%;
-  margin-top: 6px;
+  margin-top: 8px;
   flex-shrink: 0;
   box-shadow: 0 0 8px var(--gold-primary);
 }
@@ -586,9 +471,140 @@ section {
   color: var(--text-primary);
 }
 
+/* Micro-animations and hover lift */
+.animate-hover-lift {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-hover-lift:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-primary) !important;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1) !important;
+}
+
+/* Breakdown Salad Grid Section */
+.salad-section {
+  background-color: var(--bg-primary);
+}
+
+.salad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.salad-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 35px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: right;
+  position: relative;
+  overflow: hidden;
+}
+
+.salad-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.08);
+}
+
+.salad-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, var(--gold-dark), var(--gold-primary), var(--gold-secondary));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.salad-card:hover::before {
+  opacity: 1;
+}
+
+.card-icon-box {
+  background: rgba(255, 255, 255, 0.02);
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color);
+  font-size: 26px;
+  color: var(--gold-primary);
+}
+
+.salad-card:hover .card-icon-box {
+  border-color: var(--gold-primary);
+  background: var(--gold-light);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+.salad-card h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.salad-card p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.ingredients-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.ing-bullet {
+  color: var(--gold-primary);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.no-furniture-alert {
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.02);
+  border: 1px dashed var(--gold-primary);
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: right;
+  color: var(--text-secondary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.no-furniture-alert strong {
+  color: var(--gold-secondary);
+}
+
 /* Comparison Section */
 .comparison-section {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
 }
 
 .comparison-grid {
@@ -751,126 +767,6 @@ section {
   border-radius: 50%;
   border: 1px solid var(--border-gold);
   flex-shrink: 0;
-}
-
-/* Breakdown Salad Grid Section */
-.salad-section {
-  background-color: var(--bg-primary);
-}
-
-.salad-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.salad-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 35px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  text-align: right;
-  position: relative;
-  overflow: hidden;
-}
-
-.salad-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--gold-primary);
-  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.08);
-}
-
-.salad-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(to right, var(--gold-dark), var(--gold-primary), var(--gold-secondary));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.salad-card:hover::before {
-  opacity: 1;
-}
-
-.card-icon-box {
-  background: rgba(255, 255, 255, 0.02);
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  border: 1px solid var(--border-color);
-  font-size: 26px;
-  color: var(--gold-primary);
-}
-
-.salad-card:hover .card-icon-box {
-  border-color: var(--gold-primary);
-  background: var(--gold-light);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
-}
-
-.salad-card h3 {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-
-.salad-card p {
-  color: var(--text-secondary);
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.ingredients-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  border-top: 1px solid var(--border-color);
-  padding-top: 20px;
-}
-
-.ingredients-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--text-primary);
-}
-
-.ing-bullet {
-  color: var(--gold-primary);
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.no-furniture-alert {
-  margin-top: 40px;
-  padding: 24px;
-  border-radius: 12px;
-  background: rgba(212, 175, 55, 0.02);
-  border: 1px dashed var(--gold-primary);
-  font-size: 15px;
-  line-height: 1.6;
-  text-align: right;
-  color: var(--text-secondary);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.no-furniture-alert strong {
-  color: var(--gold-secondary);
 }
 
 /* Technical Tabs Section */
@@ -1189,10 +1085,6 @@ section {
   .simulator-container {
     grid-template-columns: 1fr;
     gap: 30px;
-  }
-
-  .caravan-annotations {
-    grid-template-columns: 1fr;
   }
   
   .vibe-grid {
