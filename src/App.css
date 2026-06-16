@@ -230,55 +230,7 @@ section {
   gap: 20px;
 }
 
-/* Hero Visual & Quiz Card */
-.hero-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.visual-image-wrapper {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border-gold);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.1);
-  aspect-ratio: 16 / 9;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.image-overlay-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.image-dimension-tag {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.85);
-  border: 1px solid var(--border-gold);
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--gold-secondary);
-  z-index: 5;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-/* Interactive Quiz Card */
+/* Quiz Card Component */
 .quiz-card {
   background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(20px);
@@ -426,9 +378,217 @@ section {
   margin-bottom: 30px;
 }
 
+/* Simulator Section & Caravan Expanding Component */
+.simulator-section {
+  background-color: var(--bg-secondary);
+}
+
+.simulator-container {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.simulator-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: right;
+}
+
+.simulator-description-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.active-exp {
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%) !important;
+  color: #000000 !important;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3) !important;
+}
+
+/* Expandable Caravan Visual */
+.caravan-simulator-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  position: relative;
+}
+
+.caravan-graphic {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-bottom: 2px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.caravan-main-body {
+  position: absolute;
+  bottom: 20px;
+  right: 80px; /* Positioned relative to the track */
+  width: 200px;
+  height: 110px;
+  background: #12141c;
+  border: 2px solid var(--gold-primary);
+  border-radius: 12px 12px 0 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+}
+
+.caravan-label {
+  font-size: 12px;
+  color: var(--gold-secondary);
+  font-weight: 700;
+  text-align: center;
+}
+
+.caravan-hitch {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  width: 42px;
+  height: 12px;
+  border-top: 4px solid var(--gold-primary);
+  border-left: 4px solid var(--gold-primary);
+  transform: rotate(-10deg);
+  z-index: 8;
+}
+
+.wheel {
+  position: absolute;
+  bottom: -15px;
+  width: 32px;
+  height: 32px;
+  background: #000000;
+  border: 3px solid var(--gold-primary);
+  border-radius: 50%;
+  z-index: 11;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.wheel-right {
+  right: 40px;
+}
+
+.wheel-left {
+  right: 120px;
+}
+
+/* The expanding modular room */
+.caravan-expanding-room {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 160px;
+  height: 95px;
+  background: #1a1e29;
+  border: 2px dashed var(--gold-secondary);
+  border-radius: 8px 0 0 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(0);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.caravan-expanding-room.expanded {
+  opacity: 1;
+  transform: translateX(-162px); /* Slides out to the left in RTL */
+  pointer-events: auto;
+}
+
+.expanding-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 5px;
+}
+
+.window-sim {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 25px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--gold-primary);
+  border-radius: 4px;
+}
+
+/* Annotations for the simulator elements */
+.caravan-annotations {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: right;
+}
+
+.caravan-annotations.visible {
+  opacity: 1;
+  max-height: 500px;
+  margin-top: 20px;
+  padding: 20px;
+  border-top: 1px dashed var(--border-gold);
+}
+
+.anno-tag {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255,255,255,0.01);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
+}
+
+.anno-tag:hover {
+  border-color: var(--gold-primary);
+}
+
+.anno-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--gold-primary);
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--gold-primary);
+}
+
+.anno-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.anno-text strong {
+  color: var(--text-primary);
+}
+
 /* Breakdown Salad Grid Section */
 .salad-section {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
 }
 
 .salad-grid {
@@ -529,9 +689,26 @@ section {
   flex-shrink: 0;
 }
 
+.no-furniture-alert {
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.02);
+  border: 1px dashed var(--gold-primary);
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: right;
+  color: var(--text-secondary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.no-furniture-alert strong {
+  color: var(--gold-secondary);
+}
+
 /* Comparison Section */
 .comparison-section {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
 }
 
 .comparison-grid {
@@ -613,170 +790,6 @@ section {
 .solution-card:hover {
   border-color: var(--gold-primary);
   box-shadow: 0 15px 45px rgba(212, 175, 55, 0.08);
-}
-
-/* ROI Dynamic Calculator */
-.roi-section {
-  background-color: var(--bg-secondary);
-}
-
-.roi-calculator-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  padding: 50px;
-}
-
-.calculator-inputs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 35px;
-}
-
-.slider-group {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.slider-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.slider-title {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.slider-value {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--gold-primary);
-}
-
-.roi-slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 8px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.08);
-  outline: none;
-  transition: background 0.3s;
-}
-
-.roi-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--gold-primary);
-  cursor: pointer;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
-  transition: transform 0.1s ease;
-}
-
-.roi-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.25);
-}
-
-.roi-slider::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
-  border: none;
-  border-radius: 50%;
-  background: var(--gold-primary);
-  cursor: pointer;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
-  transition: transform 0.1s ease;
-}
-
-.roi-slider::-moz-range-thumb:hover {
-  transform: scale(1.25);
-}
-
-.slider-hint {
-  font-size: 13px;
-  color: var(--text-secondary);
-}
-
-.calculator-results {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid var(--border-gold);
-  border-radius: 12px;
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: inset 0 4px 20px rgba(0,0,0,0.8);
-}
-
-.result-metric {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.result-label {
-  font-size: 16px;
-  color: var(--text-secondary);
-}
-
-.result-value {
-  font-size: 22px;
-  font-weight: 800;
-}
-
-.result-divider {
-  height: 1px;
-  background: var(--border-color);
-  margin: 18px 0;
-}
-
-.text-red {
-  color: #fca5a5;
-}
-
-.text-gold {
-  color: var(--gold-secondary);
-}
-
-.text-green {
-  color: var(--success);
-}
-
-.result-metric.highlight {
-  background: rgba(212, 175, 55, 0.03);
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px dashed var(--gold-primary);
-}
-
-.result-metric.highlight .result-label {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.result-metric.highlight .result-value {
-  font-size: 28px;
-  color: var(--gold-primary);
-  text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-}
-
-.calculator-conclusion {
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-top: 24px;
-  text-align: right;
 }
 
 /* Technical Tabs Section */
@@ -1092,6 +1105,15 @@ section {
     justify-content: center;
   }
   
+  .simulator-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .caravan-annotations {
+    grid-template-columns: 1fr;
+  }
+  
   .salad-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1099,12 +1121,6 @@ section {
   .comparison-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-  
-  .roi-calculator-box {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 30px;
   }
   
   .specs-tabs-header {
