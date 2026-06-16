@@ -1038,31 +1038,34 @@ section {
 }
 
 /* Responsive / Mobile Styles */
+/* Responsive / Mobile Styles */
 @media (max-width: 1024px) {
   section {
-    padding: 80px 0;
+    padding: 60px 0;
   }
   
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 40px;
   }
   
   .hero-content {
-    align-items: center;
-    text-align: center;
+    align-items: stretch;
+    text-align: right;
   }
   
   .hero-title {
-    font-size: 42px;
+    font-size: clamp(28px, 6vw, 42px);
+    line-height: 1.25;
   }
   
   .hero-description {
-    font-size: 18px;
+    font-size: 17px;
+    line-height: 1.65;
   }
   
   .hero-usp-list {
-    align-items: center;
+    align-items: stretch;
   }
   
   .usp-item {
@@ -1070,26 +1073,29 @@ section {
   }
   
   .hero-cta-group {
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
   }
   
   .simulator-container {
     grid-template-columns: 1fr;
     gap: 30px;
+    padding: 30px 15px;
   }
   
   .vibe-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 35px;
   }
   
   .vibe-content {
-    align-items: center;
-    text-align: center;
+    align-items: stretch;
+    text-align: right;
   }
   
   .vibe-points {
-    align-items: center;
+    align-items: stretch;
   }
   
   .vibe-point {
@@ -1098,15 +1104,17 @@ section {
   
   .salad-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .solutions-only-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 25px;
   }
   
   .specs-tabs-header {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   
   .spec-tab-pane {
@@ -1126,33 +1134,92 @@ section {
   
   .header-container {
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
+    align-items: center;
   }
   
   .header-nav {
-    display: none; /* Focus CTA */
+    display: none; /* Hide nav link redundancy on mobile headers */
+  }
+  
+  .logo-container {
+    justify-content: center;
+  }
+  
+  .hero-title {
+    font-size: clamp(24px, 5.5vw, 32px);
+  }
+  
+  .hero-description {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(22px, 5vw, 28px);
+  }
+
+  .section-header p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  .simulator-container {
+    padding: 15px 5px !important;
+    border-radius: 8px;
+    border-inline: none; /* remove side border on very small screens for edge-to-edge video */
+  }
+  
+  .simulator-video-wrapper {
+    border-radius: 8px;
+  }
+  
+  .simulation-disclaimer {
+    font-size: 11px;
+    padding: 8px 12px;
   }
   
   .salad-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .salad-card {
+    padding: 25px 20px;
+  }
+
+  .solution-only-card {
+    padding: 30px 20px;
   }
 
   .contact-buttons {
     flex-direction: column;
     align-items: stretch;
-    gap: 15px;
+    gap: 12px;
   }
   
   .specs-tabs-header {
     grid-template-columns: 1fr;
   }
   
+  .specs-tab-content {
+    padding: 24px 16px;
+  }
+  
   .contact-box {
-    padding: 40px 24px;
+    padding: 35px 20px;
   }
   
   .waitlist-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 12px;
+  }
+
+  .waitlist-form {
+    padding: 24px 16px;
   }
 }

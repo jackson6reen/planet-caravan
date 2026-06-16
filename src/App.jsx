@@ -2,9 +2,18 @@ import React, { useState } from 'react';
 import './App.css';
 
 // --- CONFIGURATION ---
-// Paste your Google Apps Script Web App URL here to synchronize submissions directly with Google Sheets.
+// Paste your Google Apps Script Web App URL or Google Form response URL here to synchronize submissions directly with Google.
 const GOOGLE_SHEET_WEBHOOK_URL = ''; 
 
+// If you are using Google Forms directly, map your form field names to your Google Form entry IDs below:
+const GOOGLE_FORM_MAPPING = {
+  name: 'entry.1000001',   // Replace with your Google Form entry ID for Name
+  phone: 'entry.1000002',  // Replace with your Google Form entry ID for Phone
+  email: 'entry.1000003',  // Replace with your Google Form entry ID for Email
+  purpose: 'entry.1000004',// Replace with your Google Form entry ID for Purpose
+  size: 'entry.1000005',   // Replace with your Google Form entry ID for Size
+  access: 'entry.1000006', // Replace with your Google Form entry ID for Access
+};
 function App() {
   // Lead form quiz step states
   const [quizStep, setQuizStep] = useState(1);
@@ -32,28 +41,53 @@ function App() {
   // FAQ state
   const [openFaq, setOpenFaq] = useState(null);
 
-  // Helper function to send data to Google Sheets Webhook
+  // Helper function to send data to Google Sheets Webhook or Google Forms
   const sendToGoogleSheets = async (data) => {
     if (!GOOGLE_SHEET_WEBHOOK_URL) {
-      console.log("Google Sheet URL is not set. Data compiled:", data);
+      console.log("Google URL is not set. Data compiled:", data);
       return true;
     }
 
     try {
-      await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
-        method: 'POST',
-        mode: 'no-cors', 
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...data,
-          submittedAt: new Date().toISOString()
-        })
-      });
+      // Check if it's a Google Form URL
+      if (GOOGLE_SHEET_WEBHOOK_URL.includes('/formResponse') || GOOGLE_SHEET_WEBHOOK_URL.includes('/forms/')) {
+        const formUrl = GOOGLE_SHEET_WEBHOOK_URL.includes('/formResponse') 
+          ? GOOGLE_SHEET_WEBHOOK_URL 
+          : GOOGLE_SHEET_WEBHOOK_URL.replace(/\/viewform$/, '/formResponse');
+
+        const formData = new URLSearchParams();
+        
+        // Map fields to Google Form entries
+        Object.keys(data).forEach(key => {
+          const entryId = GOOGLE_FORM_MAPPING[key] || key;
+          formData.append(entryId, data[key]);
+        });
+
+        await fetch(formUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: formData.toString()
+        });
+      } else {
+        // Default: Google Apps Script Web App Webhook (JSON POST)
+        await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors', 
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...data,
+            submittedAt: new Date().toISOString()
+          })
+        });
+      }
       return true;
     } catch (error) {
-      console.error("Error submitting to Google Sheets:", error);
+      console.error("Error submitting data to Google:", error);
       return false;
     }
   };
@@ -153,7 +187,7 @@ function App() {
           </nav>
           <div className="header-actions">
             <a 
-              href="https://wa.me/972503734973?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%94%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%A8%D7%90%D7%95%D7%95%D7%A0%D7%99%20%D7%94%D7%91%D7%95%D7%98%D7%99%D7%A7%20%D7%A9%D7%9C%D7%95%D7%9B%D7%9D" 
+              href="https://wa.me/972503734973?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A7%D7%A8%D7%90%D7%95%D7%95%D7%9F%20%D7%A9%D7%9C%D7%9B%D7%9D" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn-primary phone-btn"
@@ -174,29 +208,28 @@ function App() {
               יחידת בנייה קלה וניידת <span className="gold-gradient-text">בלי כאבי ראש</span>
             </h1>
             <p className="hero-description">
-              תפסיקו לשרוף הון על שכירות או להסתבך עם קבלנים שמחרבים את הגינה. 
-              אנו מספקים מבנה מודולרי נייד ברמת גימור מודרנית מרהיבה עם <strong>רצפת גלריה מעץ מלא</strong>, שמגיע מוכן לשטח תוך זמן קצר. קלי קלות.
+              למה להסתבך עם קבלנים, רעש ואבק במשך חודשים ארוכים? אנו מספקים יחידות דיור ועבודה מודולריות מתרחבות, המעוצבות ברמת גימור פרימיום וכוללות <strong>רצפת גלריה מעץ מלא</strong>. המבנה מגיע מוכן להצבה מהירה בחצר שלכם ללא צורך בהכנות שטח מורכבות.
             </p>
 
             <div className="hero-usp-list">
               <div className="usp-item">
                 <span className="usp-icon">⚡</span>
-                <span className="usp-text"><strong>פשטות ומהירות:</strong> הצבה נקייה בשטח ביום אחד ללא שבועות של רעש ואבק.</span>
+                <span className="usp-text"><strong>פשטות ומהירות הצבה:</strong> מנוף מניח את המבנה בחצר, חיבור מהיר לתשתיות והחלל מוכן לשימוש באותו היום.</span>
               </div>
               <div className="usp-item">
                 <span className="usp-icon">🌳</span>
-                <span className="usp-text"><strong>אינטגרציה לגינה:</strong> חיפוי טיח יוקרתי בגוון טרקוטה המשתלב בטבעיות בחצר.</span>
+                <span className="usp-text"><strong>התאמה מלאה לגינה:</strong> חיפוי טיח יוקרתי בגוון טרקוטה טבעי המשתלב בצורה מושלמת עם הצמחייה בחצר.</span>
               </div>
               <div className="usp-item">
                 <span className="usp-icon">💰</span>
-                <span className="usp-text"><strong>חיסכון מקסימלי:</strong> חוסכים מאות אלפי שקלים לעומת בנייה קלה מסורתית או שיפוץ קבוע.</span>
+                <span className="usp-text"><strong>חיסכון כלכלי משמעותי:</strong> חוסכים מאות אלפי שקלים לעומת בנייה קונבנציונלית או שיפוץ יקר ומורכב.</span>
               </div>
             </div>
 
             <div className="hero-cta-group">
               <a href="#simulator-section" className="btn-primary">הדמיית וידאו של פתיחת החדר</a>
               <a 
-                href="https://wa.me/972503734973?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%94%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%A8%D7%90%D7%95%D7%95%D7%A0%D7%99%20%D7%94%D7%91%D7%95%D7%98%D7%99%D7%A7%20%D7%A9%D7%9C%D7%95%D7%9B%D7%9D"
+                href="https://wa.me/972503734973?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A7%D7%A8%D7%90%D7%95%D7%95%D7%9F%20%D7%A9%D7%9C%D7%9B%D7%9D"
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn-secondary"
@@ -460,7 +493,7 @@ function App() {
               <div className="sol-card-badge">מהירות מירבית ⚡</div>
               <h3>מוכן לשימוש תוך יום אחד</h3>
               <p>
-                היחידה מגיעה מורכבת במלואה מהמפעל. מנוף מניח אותה במיקום שבחרתם, מחברים לתשתיות ומשתמשים בה מיד. קלי קלות.
+                המבנה מיוצר במפעל ומגיע מוכן להצבה מהירה בשטח. מנוף מניח אותו במיקום המדויק שבחרתם, חיבור מהיר לתשתיות – והחלל מוכן לשימוש באותו היום.
               </p>
             </div>
 
@@ -469,7 +502,7 @@ function App() {
               <div className="sol-card-badge">שקט וניקיון 🌻</div>
               <h3>אפס לכלוך ובלאגן</h3>
               <p>
-                החצר שלכם נשארת נקייה וירוקה. אין ערמות חול, אין אבק בטון ואין רעשי עבודה בלתי נגמרים בתוך הבית הראשי.
+                נפרדים לשלום מאתרי בנייה רועשים ומלוכלכים. הגינה שלכם נשארת נקייה וירוקה, ללא ערימות חול, אבק בטון או פועלים שמסתובבים לכם בחצר חודשים ארוכים.
               </p>
             </div>
 
@@ -478,7 +511,7 @@ function App() {
               <div className="sol-card-badge">פיננסי חכם 💰</div>
               <h3>חיסכון מובטח במחיר ידוע</h3>
               <p>
-                אתם חוסכים מאות אלפי שקלים ויודעים מראש את עלות היחידה וההצבה. בלי שטיקים ובלי הפתעות תקציביות.
+                עלויות ידועות וברורות מראש ללא הפתעות או חריגות תקציב של קבלנים. אתם חוסכים מאות אלפי שקלים ומקבלים יחידה ניידת ברמת פרימיום.
               </p>
             </div>
           </div>
@@ -502,7 +535,7 @@ function App() {
             <p>
               יחידת הבוטיק שלנו עוצבה תוך חשיבה על אסתטיקה מודרנית ונקייה. 
               חיפוי הטיח היוקרתי בגוון הטרקוטה הטבעי וחלונות העץ הכפולים מעניקים למבנה מראה ייחודי, 
-              מכובד ואלגנטי, שאינו נראה כמו מכולת פועלים תעשייתית אלא משפר את מראה החצר שלכם.
+              מכובד ואלגנטי, שאינו נראה כמו מכולה תעשייתית אלא מעלה את ערך החצר שלכם.
             </p>
             <div className="vibe-points">
               <div className="vibe-point animate-hover-lift">
@@ -602,7 +635,7 @@ function App() {
         <div className="container">
           <div className="section-header">
             <div className="gold-badge">פשטות הנדסית</div>
-            <h2>פירוט האלמנרטים המודולריים של המבנה</h2>
+            <h2>פירוט האלמנטים המודולריים של המבנה</h2>
             <p>אנו מאמינים בבנייה קלה איכותית ופשוטה. הנה המאפיינים המרכזיים של המבנה:</p>
           </div>
 
@@ -825,7 +858,7 @@ function App() {
 
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/972503734973?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%94%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%A8%D7%90%D7%95%D7%95%D7%A0%D7%99%20%D7%94%D7%91%D7%95%D7%98%D7%99%D7%A7%20%D7%A9%D7%9C%D7%95%D7%9C%D7%9D" 
+        href="https://wa.me/972503734973?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A7%D7%A8%D7%90%D7%95%D7%95%D7%9F%20%D7%A9%D7%9C%D7%9B%D7%9D" 
         className="floating-whatsapp" 
         target="_blank" 
         rel="noopener noreferrer"
