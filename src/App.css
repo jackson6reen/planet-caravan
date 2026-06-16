@@ -435,7 +435,7 @@ section {
 .caravan-main-body {
   position: absolute;
   bottom: 20px;
-  right: 80px; /* Positioned relative to the track */
+  right: 80px;
   width: 200px;
   height: 110px;
   background: #12141c;
@@ -509,7 +509,7 @@ section {
 
 .caravan-expanding-room.expanded {
   opacity: 1;
-  transform: translateX(-162px); /* Slides out to the left in RTL */
+  transform: translateX(-162px);
   pointer-events: auto;
 }
 
@@ -584,6 +584,173 @@ section {
 
 .anno-text strong {
   color: var(--text-primary);
+}
+
+/* Comparison Section */
+.comparison-section {
+  background-color: var(--bg-primary);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.comp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 45px;
+  position: relative;
+}
+
+.card-badge {
+  position: absolute;
+  top: -15px;
+  right: 40px;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.danger-badge {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+.success-badge {
+  background: var(--gold-light);
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-secondary);
+}
+
+.comp-card h3 {
+  font-size: 26px;
+  margin-bottom: 35px;
+  margin-top: 10px;
+}
+
+.comp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.comp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  line-height: 1.6;
+}
+
+.bullet-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.pain-card {
+  border-color: rgba(239, 68, 68, 0.15);
+}
+
+.pain-card:hover {
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.solution-card {
+  border-color: var(--border-gold);
+}
+
+.solution-card:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.08);
+}
+
+/* Terracotta Visual Vibe Section */
+.vibe-showcase-section {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 100px 0;
+}
+
+.vibe-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.vibe-image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.1);
+  aspect-ratio: 16 / 9;
+}
+
+.vibe-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vibe-image-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.vibe-content {
+  text-align: right;
+}
+
+.vibe-content h2 {
+  font-size: 38px;
+  margin: 16px 0;
+}
+
+.vibe-content p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.vibe-points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vibe-point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.point-icon {
+  font-size: 20px;
+  background: var(--bg-card);
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  flex-shrink: 0;
 }
 
 /* Breakdown Salad Grid Section */
@@ -704,92 +871,6 @@ section {
 
 .no-furniture-alert strong {
   color: var(--gold-secondary);
-}
-
-/* Comparison Section */
-.comparison-section {
-  background-color: var(--bg-secondary);
-}
-
-.comparison-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.comp-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 45px;
-  position: relative;
-}
-
-.card-badge {
-  position: absolute;
-  top: -15px;
-  right: 40px;
-  padding: 8px 20px;
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.danger-badge {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.4);
-  color: #fca5a5;
-}
-
-.success-badge {
-  background: var(--gold-light);
-  border: 1px solid var(--gold-primary);
-  color: var(--gold-secondary);
-}
-
-.comp-card h3 {
-  font-size: 26px;
-  margin-bottom: 35px;
-  margin-top: 10px;
-}
-
-.comp-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.comp-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  line-height: 1.6;
-}
-
-.bullet-icon {
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.pain-card {
-  border-color: rgba(239, 68, 68, 0.15);
-}
-
-.pain-card:hover {
-  border-color: rgba(239, 68, 68, 0.4);
-}
-
-.solution-card {
-  border-color: var(--border-gold);
-}
-
-.solution-card:hover {
-  border-color: var(--gold-primary);
-  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.08);
 }
 
 /* Technical Tabs Section */
@@ -1112,6 +1193,24 @@ section {
 
   .caravan-annotations {
     grid-template-columns: 1fr;
+  }
+  
+  .vibe-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .vibe-content {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .vibe-points {
+    align-items: center;
+  }
+  
+  .vibe-point {
+    text-align: right;
   }
   
   .salad-grid {

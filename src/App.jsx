@@ -9,7 +9,7 @@ function App() {
   // Simulator state (for the expanding caravan animation)
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Lead form quiz step states (simple check for yard/delivery)
+  // Lead form quiz step states
   const [quizStep, setQuizStep] = useState(1);
   const [answers, setAnswers] = useState({
     purpose: '',
@@ -146,7 +146,7 @@ function App() {
           </div>
           <nav className="header-nav">
             <a href="#simulator-section" className="nav-link">הדמיית מוצר</a>
-            <a href="#modular-section" className="nav-link">בנייה קלה ומהירה</a>
+            <a href="#pains-section" className="nav-link">כאב ופתרון</a>
             <a href="#salad-section" className="nav-link">מפרט האלמנטים</a>
             <a href="#waitlist-section" className="nav-link">הצטרפות לרשימה</a>
             <a href="#faq-section" className="nav-link">שאלות נפוצות</a>
@@ -169,39 +169,39 @@ function App() {
         <div className="container hero-grid">
           {/* Text/Copy Column */}
           <div className="hero-content">
-            <div className="gold-badge">אלטרנטיבת הבנייה המהירה והחסכונית ביותר</div>
+            <div className="gold-badge">אלטרנטיבת הבנייה המהירה והחסכונית ביותר לחצר</div>
             <h1 className="hero-title">
-              פתרון בנייה קלה ונייד לחצר שלכם – <span className="gold-gradient-text">קלי קלות</span>
+              יחידת בנייה קלה וניידת – <span className="gold-gradient-text">בלי כאבי ראש</span>
             </h1>
             <p className="hero-description">
-              תשכחו מהיתרים ארוכים, תוכניות אדריכליות מתישות ושיפוצים שנמרחים על פני חודשים. 
-              אנו מספקים יחידות בנייה מודולרית מתקדמות וניידות, המגיעות מוכנות לשטח תוך זמן קצר ממש, ומאפשרות לכם להוסיף מרחב מגורים או עבודה חסכוני ללא כאבי ראש.
+              תפסיקו לשרוף הון על שכירות או להסתבך עם קבלנים שמחרבים את הגינה. 
+              אנו מספקים מבנה מודולרי נייד ברמת גימור מודרנית מרהיבה עם <strong>רצפת גלריה מעץ מלא</strong>, שמגיע מוכן לשטח תוך זמן קצר. קלי קלות.
             </p>
 
             <div className="hero-usp-list">
               <div className="usp-item">
                 <span className="usp-icon">⚡</span>
-                <span className="usp-text"><strong>פשטות ומהירות:</strong> הצבה מהירה בשטח תוך שעות בודדות ללא ימי עבודה מתישים של קבלנים.</span>
+                <span className="usp-text"><strong>פשטות ומהירות:</strong> הצבה נקייה בשטח ביום אחד ללא שבועות של רעש ואבק.</span>
               </div>
               <div className="usp-item">
-                <span className="usp-icon">🧱</span>
-                <span className="usp-text"><strong>בנייה קלה נקייה:</strong> אין שקי מלט, אין ערמות חול ואין בלאגן בחצר. הכל מגיע מוכן ומשונע.</span>
+                <span className="usp-icon">🌳</span>
+                <span className="usp-text"><strong>אינטגרציה לגינה:</strong> חיפוי טיח יוקרתי בגוון טרקוטה המשתלב בטבעיות בחצר.</span>
               </div>
               <div className="usp-item">
                 <span className="usp-icon">💰</span>
-                <span className="usp-text"><strong>חיסכון מקסימלי:</strong> חוסכים אלפי שקלים בהוצאות מהנדסים, רישוי קבוע ויסודות בטון מורכבים.</span>
+                <span className="usp-text"><strong>חיסכון מקסימלי:</strong> חוסכים מאות אלפי שקלים לעומת בנייה קלה מסורתית או שיפוץ קבוע.</span>
               </div>
             </div>
 
             <div className="hero-cta-group">
-              <a href="#simulator-section" className="btn-primary">הדמיית הקראוון המתרחב</a>
+              <a href="#simulator-section" className="btn-primary">הדמיית פתיחת החדר</a>
               <a 
                 href="https://wa.me/972503734973?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%94%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%A8%D7%90%D7%95%D7%95%D7%A0%D7%99%20%D7%94%D7%91%D7%95%D7%98%D7%99%D7%A7%20%D7%A9%D7%9C%D7%95%D7%9B%D7%9D"
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn-secondary"
               >
-                📱 ווטסאפ ישיר לבירורים
+                📱 ווטסאפ מהיר לפרטים
               </a>
             </div>
           </div>
@@ -221,35 +221,35 @@ function App() {
 
                   {quizStep === 1 && (
                     <div className="quiz-step">
-                      <h4 className="quiz-question">מהו השימוש העיקרי המתוכנן?</h4>
+                      <h4 className="quiz-question">מה השימוש המתוכנן עבור החלל?</h4>
                       <div className="quiz-options">
                         <button 
                           type="button"
                           className="quiz-opt-btn"
                           onClick={() => handleSelectOption('purpose', 'תוספת מגורים למשפחה')}
                         >
-                          👨‍👩‍👦 תוספת מגורים לילד בוגר / הורים בחצר
+                          🧑‍🎓 תוספת מגורים לילד בוגר / הורים בחצר
                         </button>
                         <button 
                           type="button"
                           className="quiz-opt-btn"
-                          onClick={() => handleSelectOption('purpose', 'יחידת השכרה')}
+                          onClick={() => handleSelectOption('purpose', 'יחידת השכרה מניבה')}
                         >
-                          💰 יחידת אירוח להשכרה ויצירת הכנסה נוספת
+                          💸 יחידת אירוח עצמאית להשכרה ויצירת הכנסה
                         </button>
                         <button 
                           type="button"
                           className="quiz-opt-btn"
                           onClick={() => handleSelectOption('purpose', 'משרד או קליניקה')}
                         >
-                          💼 משרד עבודה שקט או קליניקה לטיפולים
+                          💼 משרד עבודה ביתי שקט או קליניקת טיפולים
                         </button>
                         <button 
                           type="button"
                           className="quiz-opt-btn"
                           onClick={() => handleSelectOption('purpose', 'אחר')}
                         >
-                          ⭐ פתרון אחסון או סטודיו יצירתי
+                          ⭐ סטודיו פרטי או חלל יצירתי פתוח
                         </button>
                       </div>
                     </div>
@@ -257,28 +257,28 @@ function App() {
 
                   {quizStep === 2 && (
                     <div className="quiz-step">
-                      <h4 className="quiz-question">איך נראית החצר שלך?</h4>
+                      <h4 className="quiz-question">מהו שטח הגינה הפנוי להצבה?</h4>
                       <div className="quiz-options">
                         <button 
                           type="button"
                           className="quiz-opt-btn"
                           onClick={() => handleSelectOption('size', 'חצר קטנה')}
                         >
-                          🏡 חצר קומפקטית / קטנה (מתאים לפתרון מודולרי)
+                          🏡 חצר קומפקטית / קטנה (הפתרון הנייד מתאים בול!)
                         </button>
                         <button 
                           type="button"
                           className="quiz-opt-btn"
                           onClick={() => handleSelectOption('size', 'חצר בינונית')}
                         >
-                          🌳 גינה בינונית בעלת שטח פנוי נוח
+                          🌳 חצר ממוצעת / גינה בינונית
                         </button>
                         <button 
                           type="button"
                           className="quiz-opt-btn"
-                          onClick={() => handleSelectOption('size', 'שטח גדול')}
+                          onClick={() => handleSelectOption('size', 'נחלה או שטח גדול')}
                         >
-                          ⛳ שטח פתוח רחב או נחלה
+                          ⛳ שטח אדמה פתוח רחב או נחלה גדולה
                         </button>
                       </div>
                       <button type="button" className="back-link" onClick={() => setQuizStep(1)}>← חזרה לשלב הקודם</button>
@@ -287,21 +287,21 @@ function App() {
 
                   {quizStep === 3 && (
                     <div className="quiz-step">
-                      <h4 className="quiz-question">מהי רמת גישת ההובלה לחצר?</h4>
+                      <h4 className="quiz-question">איך נראית גישת ההובלה לחצר שלכם?</h4>
                       <div className="quiz-options">
                         <button 
                           type="button"
                           className="quiz-opt-btn"
                           onClick={() => handleSelectOption('access', 'גישה רחבה ופתוחה')}
                         >
-                          🚜 רחוב רחב ללא כבלים או עצים חוסמים (הצבה חלקה)
+                          🚜 רחוב רחב ללא כבלי חשמל או עצים נמוכים (מעבר חלק)
                         </button>
                         <button 
                           type="button"
                           className="quiz-opt-btn"
-                          onClick={() => handleSelectOption('access', 'רחוב צר או צפוף')}
+                          onClick={() => handleSelectOption('access', 'גישה מאתגרת או צרה')}
                         >
-                          🧱 רחוב צר, חוטי חשמל נמוכים או עצים בדרך
+                          🧱 רחוב פנימי צר, עצים או כבלים (נצטרך תכנון מנוף)
                         </button>
                         <button 
                           type="button"
@@ -317,7 +317,7 @@ function App() {
 
                   {quizStep === 4 && (
                     <form onSubmit={handleSubmitQuiz} className="quiz-step">
-                      <h4 className="quiz-question">השאירו פרטים לקבלת ניתוח התאמה לחצר:</h4>
+                      <h4 className="quiz-question">נא למלא פרטים לשליחת בדיקת ההיתכנות:</h4>
                       <div className="form-group">
                         <label className="form-label" htmlFor="quiz-name">שם מלא</label>
                         <input 
@@ -357,7 +357,7 @@ function App() {
                         />
                       </div>
                       <button type="submit" className="btn-primary w-full" disabled={isSubmitting}>
-                        {isSubmitting ? "מבצע סנכרון..." : "✨ בדקו התאמה וקבלו פרטים בווטסאפ"}
+                        {isSubmitting ? "שומר נתונים..." : "✨ בדקו התאמה וקבלו פרטים בווטסאפ"}
                       </button>
                       <button type="button" className="back-link" onClick={() => setQuizStep(3)}>← חזרה לשלב הקודם</button>
                     </form>
@@ -366,12 +366,12 @@ function App() {
               ) : (
                 <div className="quiz-success">
                   <div className="success-icon">👍</div>
-                  <h3>המידע נשלח בהצלחה!</h3>
+                  <h3>הבקשה נקלטה במערכת!</h3>
                   <p>
-                    תודה <strong>{answers.name}</strong>. התחלנו לבצע בדיקה ראשונית של המפה לחצר שלכם. 
-                    נציג מוסמך ייצור איתך קשר בהקדם למספר <strong>{answers.phone}</strong> כדי לתאם שיחה ולהציג פתרונות מודולריים מתאימים.
+                    תודה <strong>{answers.name}</strong>. התחלנו לבצע ניתוח של דרכי ההגעה לחצר שלכם במפות לוויין. 
+                    נציג מוסמך ייצור איתך קשר בהקדם למספר <strong>{answers.phone}</strong> כדי להציג את האפשרויות והפתרונות המודולריים המתאימים.
                   </p>
-                  <button type="button" className="btn-secondary" onClick={resetQuiz}>בדיקה נוספת</button>
+                  <button type="button" className="btn-secondary" onClick={resetQuiz}>בדיקה חדשה</button>
                 </div>
               )}
             </div>
@@ -384,10 +384,10 @@ function App() {
         <div className="container">
           <div className="section-header">
             <div className="gold-badge">טכנולוגיית שינוע ופריסה מתקדמת</div>
-            <h2>הדמיית קראוון מתרחב אוטומטית</h2>
+            <h2>הדמיית פריסת החדר בשטח</h2>
             <p>
-              היחידה כולה מתוכננת לניידות ושינוע קלים במיוחד. 
-              לחצו על הכפתור כדי לראות כיצד המבנה נפרס בשטח ומכפיל את חלל הפנים שלו בלחיצת כפתור אחת.
+              היחידות שלנו נהנות מגמישות שינוע מקסימלית בכבישים, ובשטח נפרסות ליצירת חלל מרווח ללא צורך ביציקות בטון. 
+              לחצו על הכפתור כדי לראות כיצד החדר הנוסף נפתח אוטומטית.
             </p>
           </div>
 
@@ -401,7 +401,7 @@ function App() {
                 {isExpanded ? '🔍 החזר את היחידה למצב שינוע' : '✨ פתח חדר מתרחב אוטומטית'}
               </button>
               <p className="simulator-description-text">
-                היחידה משונעת במצב סגור ונוח להובלה בכבישים, ובשטח נפתחת החוצה ליצירת חדר מגורים או עבודה מרווח ללא שום מאמץ.
+                היחידה משונעת במצב סגור וצר, וכשהיא ממוקמת בחצר היא נפתחת החוצה ומכפילה את שטח המרחב בצורה נקייה ומהירה.
               </p>
             </div>
 
@@ -429,27 +429,27 @@ function App() {
               <div className={`caravan-annotations ${isExpanded ? 'visible' : ''}`}>
                 <div className="anno-tag pos-floor">
                   <span className="anno-dot"></span>
-                  <span className="anno-text"><strong>רצפת גליה איכותית:</strong> בסיס פלדה מגולוון חזק ומאוזן לשינוע מהיר.</span>
+                  <span className="anno-text"><strong>רצפת גלריה מעץ מלא:</strong> בסיס פנימי חם, עמיד ואסתטי ברמת גימור בוטיק אמיתית.</span>
                 </div>
                 <div className="anno-tag pos-walls">
                   <span className="anno-dot"></span>
-                  <span className="anno-text"><strong>פאנלים מבודדים:</strong> בידוד תרמי מושלם מפני חום וקור.</span>
+                  <span className="anno-text"><strong>פאנלים מבודדים:</strong> בידוד תרמי מושלם בקירות לשמירה על חום וקור.</span>
                 </div>
                 <div className="anno-tag pos-interior">
                   <span className="anno-dot"></span>
-                  <span className="anno-text"><strong>חיפוי גבס פנימי:</strong> גימור קיר ביתי ישר וחלק (ללא מראה מכולה).</span>
+                  <span className="anno-text"><strong>חיפוי גבס פנימי:</strong> קירות פנים חלקים וישרים המוכנים לצבע או עיצוב.</span>
                 </div>
                 <div className="anno-tag pos-roof">
                   <span className="anno-dot"></span>
-                  <span className="anno-text"><strong>גג מבודד ואטום:</strong> הגנה מוחלטת מפני רטיבות, גשם וקרינת שמש.</span>
+                  <span className="anno-text"><strong>גג מבודד ואטום:</strong> הגנה מוחלטת מפני רטיבות, נזילות ורעשי גשם קיצוניים.</span>
                 </div>
                 <div className="anno-tag pos-plaster">
                   <span className="anno-dot"></span>
-                  <span className="anno-text"><strong>טיח יוקרתי חיצוני:</strong> מראה נקי, מודרני ואסתטי המשתלב בגינה.</span>
+                  <span className="anno-text"><strong>טיח יוקרתי טבעי:</strong> מעטפת טיח בגוון טרקוטה המשתלבת באופן מושלם בגינה.</span>
                 </div>
                 <div className="anno-tag pos-plug">
                   <span className="anno-dot"></span>
-                  <span className="anno-text"><strong>חיבור Plug & Play:</strong> נקודות קצה מוכנות לחיבור מים וחשמל.</span>
+                  <span className="anno-text"><strong>חיבור Plug & Play:</strong> תשתיות מובנות עם נקודות חיבור מהירות לחשמל ולמים.</span>
                 </div>
               </div>
             </div>
@@ -457,57 +457,94 @@ function App() {
         </div>
       </section>
 
-      {/* Light & Economical Construction Focus (Replacing Pains & Solutions) */}
-      <section className="comparison-section" id="modular-section">
+      {/* Pains and Solutions Focus Section */}
+      <section className="comparison-section" id="pains-section">
         <div className="container">
           <div className="section-header">
-            <div className="gold-badge">פשטות מעל הכל</div>
-            <h2>פתרון הבנייה הקלה שמנצח את השיפוצים</h2>
+            <div className="gold-badge">ההבדל בין סיוט להתקדמות חכמה</div>
+            <h2>כאבי הבנייה לעומת הפתרון המודולרי</h2>
             <p>
-              מדוע להיכנס להוצאות מטורפות ולתהליכי שיפוץ מייגעים כשאפשר ליהנות מחלל מוכן, נייד ומעוצב בגינה? 
-              הנה מה שהופך את הבנייה המודולרית של פלאנט קראוון לבחירה הנכונה ביותר:
+              בנייה ושיפוצים בחצר הם סרט בלהות של אובדן כספים, זמן ובריאות. 
+              פלאנט קראוון מעניקה לכם אלטרנטיבה פשוטה, חסכונית ונקייה שנפרסת תוך יום אחד.
             </p>
           </div>
 
           <div className="comparison-grid">
-            {/* Renovations Pain */}
+            {/* Pains */}
             <div className="comp-card pain-card">
-              <div className="card-badge danger-badge">סיוט השיפוצים הישן ❌</div>
-              <h3>בנייה ושיפוץ קונבנציונלי</h3>
+              <div className="card-badge danger-badge">סיוט השיפוצים והבנייה ❌</div>
+              <h3>למה שיפוץ קבוע הוא בור ללא תחתית?</h3>
               <ul className="comp-list">
                 <li>
                   <span className="bullet-icon">⏳</span>
-                  <span><strong>אישורים ורישיונות:</strong> צורך בהיתרים מורכבים בוועדות התכנון, הגשת תוכניות וזמני המתנה ארוכים.</span>
+                  <span><strong>סיוט הבירוקרטיה וההתרים:</strong> המתנה של שנים בוועדות התכנון, ריצות לעירייה, תשלום הון לאדריכלים ומודדים עוד לפני שהנחתם בלוק אחד.</span>
                 </li>
                 <li>
                   <span className="bullet-icon">🧹</span>
-                  <span><strong>בלאגן ולכלוך ללא סוף:</strong> הגינה הופכת לאתר פסולת, אבק בטון בכל הבית, ופועלים שמסתובבים חודשים.</span>
+                  <span><strong>חורבן הגינה והשקט:</strong> הגינה שלכם הופכת לאתר בנייה מאובק. טרקטורים רומסים את הדשא, פועלים מסתובבים בחצר חודשים ארוכים.</span>
                 </li>
                 <li>
                   <span className="bullet-icon">💸</span>
-                  <span><strong>עלויות בלתי צפויות:</strong> הצעת המחיר אף פעם אינה סופית. שיפוצים תמיד גוררים הוצאות ותיקונים נוספים.</span>
+                  <span><strong>עלויות בלתי צפויות וחריגות:</strong> הצעת המחיר שקיבלתם מקבלן אף פעם אינה סופית. שיפוצים תמיד גוררים חריגות של עשרות אלפי שקלים.</span>
                 </li>
               </ul>
             </div>
 
-            {/* Modular Simplicity */}
+            {/* Solutions */}
             <div className="comp-card solution-card">
-              <div className="card-badge success-badge">הפשטות של פלאנט קראוון ✨</div>
-              <h3>יחידה מודולרית וניידת</h3>
+              <div className="card-badge success-badge">הפתרון של פלאנט קראוון ✨</div>
+              <h3>בנייה קלה, מהירה וחסכונית</h3>
               <ul className="comp-list">
                 <li>
                   <span className="bullet-icon">⚡</span>
-                  <span><strong>מוכן בתוך זמן קצר:</strong> היחידה מיוצרת במפעל במלואה ומגיעה לשטח שלכם כשהיא מוכנה לחלוטין. קלי קלות.</span>
+                  <span><strong>מוכן לשימוש תוך יום אחד:</strong> היחידה מגיעה מורכבת במלואה מהמפעל. מנוף מניח אותה במיקום שבחרתם, מחברים לתשתיות – ומשתמשים בה מיד. קלי קלות.</span>
                 </li>
                 <li>
                   <span className="bullet-icon">🌻</span>
-                  <span><strong>חצר נקייה לחלוטין:</strong> הצבה עדינה בעזרת מנוף ישירות למיקום הנבחר ללא צורך בחפירות בטון.</span>
+                  <span><strong>אפס לכלוך ובלאגן:</strong> החצר שלכם נשארת נקייה וירוקה. אין ערמות חול, אין אבק בטון ואין רעשי עבודה בתוך הבית הראשי.</span>
                 </li>
                 <li>
                   <span className="bullet-icon">💰</span>
-                  <span><strong>חיסכון כספי מובטח:</strong> אתם יודעים מראש את עלות היחידה וההצבה, ללא הפתעות או עיכובים תקציביים.</span>
+                  <span><strong>חיסכון מובטח במחיר ידוע:</strong> אתם חוסכים מאות אלפי שקלים ויודעים מראש את עלות היחידה וההצבה. בלי שטיקים ובלי הפתעות תקציביות.</span>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Modern Terracotta Visual Vibe Section */}
+      <section className="vibe-showcase-section">
+        <div className="container vibe-grid">
+          <div className="vibe-image-wrapper">
+            <img 
+              src="/luxury_caravan_backyard.jpg" 
+              alt="Terracotta modular caravan in green garden" 
+              className="vibe-image"
+            />
+            <div className="vibe-image-glow"></div>
+          </div>
+          <div className="vibe-content">
+            <div className="gold-badge">העיצוב המודרני החדש</div>
+            <h2>סגנון מינימליסטי המשתלב בטבע של הגינה שלכם</h2>
+            <p>
+              יחידת הבוטיק שלנו עוצבה תוך חשיבה על אסתטיקה מודרנית ונקייה. 
+              חיפוי הטיח היוקרתי בגוון הטרקוטה הטבעי וחלונות העץ הדו-שכבתיים מעניקים למבנה מראה ייחודי, 
+              מכובד ואלגנטי, שאינו נראה כמו מכולת פועלים תעשייתית אלא משפר את מראה החצר שלכם.
+            </p>
+            <div className="vibe-points">
+              <div className="vibe-point">
+                <span className="point-icon">🍂</span>
+                <span><strong>גוון טרקוטה יוקרתי:</strong> טיח חיצוני עמיד ועשיר במראה אדמה חם.</span>
+              </div>
+              <div className="vibe-point">
+                <span className="point-icon">🪵</span>
+                <span><strong>חלונות עץ איכותיים:</strong> אלומיניום קליל בשילוב מסגרות עץ חמימות הניתנים להזמנה אישית.</span>
+              </div>
+              <div className="vibe-point">
+                <span className="point-icon">✨</span>
+                <span><strong>מבנה שטוח ונקי:</strong> קווים ישרים ומינימליזם ארכיטקטוני המעלה את ערך השימוש בנכס.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -517,28 +554,28 @@ function App() {
       <section className="salad-section" id="salad-section">
         <div className="container">
           <div className="section-header">
-            <div className="gold-badge">חלל ריק להתאמה אישית</div>
+            <div className="gold-badge">חלל פתוח ונקי לעיצוב עצמאי</div>
             <h2>פירקנו לכם את האלמנטים המבניים</h2>
             <p>
               אנו מספקים את היחידה כחלל פתוח ונקי, **ללא ריהוט, מטבח או כלים סניטריים**. 
-              זה מעניק לכם חופש מוחלט לעצב ולאבזר את המרחב בדיוק לפי הצרכים המדויקים שלכם (למגורים, משרד או קליניקה).
+              זה מעניק לכם חופש עיצובי מלא לעצב ולאבזר את המרחב בדיוק לפי הצרכים המדויקים שלכם.
             </p>
           </div>
 
           <div className="salad-grid">
             {/* Element 1 */}
             <div className="salad-card">
-              <div className="card-icon-box">🚜</div>
-              <h3>בסיס ושלדת גליה</h3>
-              <p>בסיס פלדה מגולוון איכותי המאפשר שינוע קל ומוגן מפני פגעי קרקע לאורך עשרות שנים:</p>
+              <div className="card-icon-box">🪵</div>
+              <h3>רצפת גלריה מעץ מלא</h3>
+              <p>בסיס פנימי חם, עמיד ואסתטי ברמת גימור בוטיק אמיתית, המונח על גבי שלדת פלדה מחוזקת וניידת:</p>
               <ul className="ingredients-list">
                 <li>
                   <span className="ing-bullet">✔</span>
-                  <span><strong>שלדת גליה מגולוונת:</strong> עמידות מוחלטת מרטיבות וחלודה, בנויה לשינוע בכל עת.</span>
+                  <span><strong>שלדת גלגל ומבנה פלדה:</strong> בסיס חזק ויציב המיועד לשינוע מהיר בכל עת ללא יסודות בטון.</span>
                 </li>
                 <li>
                   <span className="ing-bullet">✔</span>
-                  <span><strong>רצפת מתכת מחוזקת:</strong> יציבות הנדסית ללא צורך ביציקת יסודות בטון קבועים בגינה.</span>
+                  <span><strong>רצפת גלריה יוקרתית:</strong> לוחות עץ איכותיים המעניקים תחושה ביתית חמה ונעימה מהצעד הראשון.</span>
                 </li>
               </ul>
             </div>
@@ -547,7 +584,7 @@ function App() {
             <div className="salad-card">
               <div className="card-icon-box">❄️</div>
               <h3>מעטפת ובידוד מתקדם</h3>
-              <p>קירות ותקרה בעלי בידוד תרמי ואקוסטי מעולה למניעת חום ורטיבות:</p>
+              <p>קירות ותקרה בעלי בידוד תרמי ואקוסטי מעולה למניעת חום, רטיבות ורעשים חיצוניים:</p>
               <ul className="ingredients-list">
                 <li>
                   <span className="ing-bullet">✔</span>
@@ -563,27 +600,27 @@ function App() {
             {/* Element 3 */}
             <div className="salad-card">
               <div className="card-icon-box">🏠</div>
-              <h3>גימור פנים וחוץ ביתי</h3>
-              <p>המבנה אינו נראה כמו מכולת פועלים, אלא כמו חלל מגורים מעוצב ונקי:</p>
+              <h3>גימור וחלונות בעיצוב אישי</h3>
+              <p>המבנה מיוצר בסטנדרט אסתטי גבוה במיוחד המשתלב בצורה מושלמת בגינה:</p>
               <ul className="ingredients-list">
                 <li>
                   <span className="ing-bullet">✔</span>
-                  <span><strong>חיפוי גבס פנימי חלק:</strong> קירות פנים ישרים ונקיים המוכנים לצבע או לעיצוב.</span>
+                  <span><strong>חיפוי גבס פנימי חלק:</strong> קירות פנים ישרים ונקיים בדיוק כמו בבית רגיל.</span>
                 </li>
                 <li>
                   <span className="ing-bullet">✔</span>
-                  <span><strong>טיח יוקרתי חיצוני:</strong> מעטפת חיצונית אסתטית המעניקה מראה נקי המשתלב בגינה.</span>
+                  <span><strong>טיח טרקוטה חיצוני:</strong> גימור טיח יוקרתי בגוון אדמה חם ועמיד לפגעי מזג האוויר.</span>
                 </li>
                 <li>
                   <span className="ing-bullet">✔</span>
-                  <span><strong>חלונות בהזמנה אישית:</strong> פתחי אלומיניום הניתנים להתאמה אישית של מיקום וגוון.</span>
+                  <span><strong>חלונות בהזמנה אישית:</strong> חלונות אלומיניום הניתנים להתאמה מלאה של מיקום, גודל וגוון.</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="no-furniture-alert glass-panel-gold">
-            💡 <strong>הבהרה חשובה:</strong> כל היחידות של פלאנט קראוון מסופקות כחלל פתוח (מעטפת מבודדת, קירות גבס, רצפת גליה מחוזקת ותשתיות מובנות) **ללא ריהוט, מטבח או כלים סניטריים**. אתם מקבלים דף חלק לעצב את המרחב שלכם ללא תכתיבים מראש.
+          <div className="no-furniture-alert">
+            💡 <strong>הבהרה חשובה:</strong> כל היחידות של פלאנט קראוון מסופקות כחלל פתוח (רצפת גלריה מעץ מלא, מעטפת מבודדת, קירות גבס פנימיים ותשתיות מובנות) **ללא ריהוט, מטבח או כלים סניטריים**. אתם מקבלים דף חלק לעצב את המרחב שלכם ללא תכתיבים מראש.
           </div>
         </div>
       </section>
@@ -604,7 +641,7 @@ function App() {
                 className={`tab-btn ${activeTab === 'structure' ? 'active' : ''}`}
                 onClick={() => setActiveTab('structure')}
               >
-                🏠 שלד ורצפה
+                🏠 שלד ורצפת גלריה
               </button>
               <button 
                 type="button"
@@ -626,18 +663,18 @@ function App() {
               {activeTab === 'structure' && (
                 <div className="spec-tab-pane">
                   <div className="pane-info">
-                    <h3>שלדת גליה מחוזקת לניידות מלאה</h3>
+                    <h3>שלדת פלדה מחוזקת ורצפת גלריה מעץ מלא</h3>
                     <p>
                       הבסיס של כל יחידות פלאנט קראוון תוכנן כדי לאפשר שינוע קל ופשטות בהעמדה בשטח, 
                       תוך שימור מלא של עקרון הבנייה הקלה הניידת:
                     </p>
                     <ul className="spec-features-list">
-                      <li><strong>שלדת גליה מגולוונת:</strong> עמידות לאורך עשרות שנים נגד רטיבות וחדירת מים.</li>
-                      <li><strong>ניידות מלאה בכל עת:</strong> ניתן לחבר לרכב מתאים או להובלה ולשנע למיקום חדש בקלות רבה.</li>
+                      <li><strong>רצפת גלריה מעץ מלא:</strong> לוחות עץ איכותיים המונחים על תשתית בידוד למניעת רטיבות ולמגע חמים ונעים.</li>
+                      <li><strong>שלדת פלדה מחוזקת לשינוע:</strong> עמידות לאורך עשרות שנים, בנויה לגרירה והנפה ללא עיוותים.</li>
                       <li><strong>אפס פגיעה בגינה:</strong> אין צורך ביציקות בטון, מה שמאפשר להחזיר את הגינה למצבה המקורי אם היחידה מפונה.</li>
                     </ul>
                   </div>
-                  <div className="pane-icon-large">🚜</div>
+                  <div className="pane-icon-large">🏠</div>
                 </div>
               )}
 
@@ -652,7 +689,7 @@ function App() {
                     <ul className="spec-features-list">
                       <li><strong>פאנל מבודד תרמי:</strong> שומר על טמפרטורה פנימית נוחה ומאפשר מיזוג מהיר של היחידה תוך דקות.</li>
                       <li><strong>קירות גבס פנימיים:</strong> גימור קירות חלק ונקי בדיוק כמו בבית רגיל, ללא מראה תעשייתי.</li>
-                      <li><strong>חלונות בהתאמה אישית:</strong> ניתן לבחור את מיקומי החלונות ועיצובם על פי כיווני האור בחצר שלכם.</li>
+                      <li><strong>חלונות אלומיניום בהזמנה אישית:</strong> ניתן לבחור את מיקומי החלונות ועיצובם על פי כיווני האור בחצר שלכם.</li>
                     </ul>
                   </div>
                   <div className="pane-icon-large">❄️</div>
@@ -768,7 +805,7 @@ function App() {
               {openFaq === 1 && (
                 <div className="faq-answer animate-fade-in-up">
                   <p>
-                    לא. אנו מספקים את היחידות כחלל פתוח ונקי (מעטפת מבודדת, קירות גבס פנימיים, רצפת גליה מחוזקת והכנה לתשתיות) 
+                    לא. אנו מספקים את היחידות כחלל פתוח ונקי (מעטפת מבודדת, קירות גבס פנימיים, רצפת גלריה מעץ מלא והכנה לתשתיות) 
                     <strong>ללא ריהוט, ללא מטבח וללא כלים סניטריים (שירותים/מקלחת)</strong>. 
                     הדבר נעשה בכוונה על מנת לאפשר לכם חופש עיצובי מלא – תוכלו לחלק את החלל כרצונכם, לבנות מחיצות גבס פנימיות, ולהתקין את המטבח או הריהוט המדויק שאתם בוחרים מבלי להיות מוגבלים למפרט קבוע מראש.
                   </p>
@@ -833,7 +870,7 @@ function App() {
           <span className="logo-text gold-gradient-text">PLANET CARAVAN</span>
           <p>© 2026 פלאנט קראוון - פתרונות בנייה קלה וניידת לחצר. כל הזכויות שמורות.</p>
           <p className="footer-warning">
-            ⚠️ המידע המוצג באתר זה נועד למטרות שיווקיות ואינפורמטיביות כלליות בלבד. היחידות מסופקות במבנה פתוח (חלל ריק ללא ריהוט, מטבח או סניטציה) לצורך עיצוב עצמאי.
+            ⚠️ המידע המוצג באתר זה נועד למטרות שיווקיות ואינפורמטיביות כלליות בלבד. היחידות מסופקות במבנה פתוח (חלל ריק ללא ריהוט, מטבח או סניטציה) עם רצפת גלריה מעץ מלא לצורך עיצוב עצמאי.
           </p>
         </div>
       </footer>
