@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800;900&display=swap');
+
+:root {
+  /* Premium Black & Gold Palette */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #121212;
+  --bg-card: #181818;
+  
+  --gold-primary: #d4af37;     /* Classic Metallic Gold */
+  --gold-secondary: #f3e5ab;   /* Light Champagne Gold */
+  --gold-dark: #aa8c2c;        /* Deep Bronze Gold */
+  --gold-glow: rgba(212, 175, 55, 0.2);
+  --gold-light: rgba(212, 175, 55, 0.08);
+
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+  
+  --border-color: rgba(255, 255, 255, 0.05);
+  --border-gold: rgba(212, 175, 55, 0.25);
+  --border-gold-hover: rgba(212, 175, 55, 0.6);
+
+  --success: #10b981;
+  --danger: #ef4444;
+
+  --sans: 'Rubik', system-ui, -apple-system, sans-serif;
+  
+  font-family: var(--sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  direction: rtl;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-card);
+  border: 2px solid var(--bg-primary);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Base Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Gold Accents & Gradients */
+.gold-text {
+  color: var(--gold-primary);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, var(--gold-secondary) 30%, var(--gold-primary) 70%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, var(--gold-secondary) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+}
+
+/* Global Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* Reset standard React templates */
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-inline: none !important;
+  display: block !important;
+  min-height: auto !important;
+}
