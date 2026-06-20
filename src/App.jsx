@@ -203,26 +203,26 @@ function App() {
         <div className="container hero-grid">
           {/* Text/Copy Column */}
           <div className="hero-content animate-fade-in-up">
-            <div className="gold-badge">אלטרנטיבת הבנייה המהירה והחסכונית ביותר לחצר</div>
+            <div className="gold-badge">הפתרון הנייד והחוקי לחצר האחורית שלכם</div>
             <h1 className="hero-title">
-              יחידת בנייה קלה וניידת <span className="gold-gradient-text">בלי כאבי ראש</span>
+              יחידת מגורים ועבודה יוקרתיות <span className="gold-gradient-text">על גלגלים</span>
             </h1>
             <p className="hero-description">
-              למה להסתבך עם קבלנים, רעש ואבק במשך חודשים ארוכים? אנו מספקים יחידות דיור ועבודה מודולריות מתרחבות, המעוצבות ברמת גימור פרימיום וכוללות <strong>רצפת גלריה מעץ מלא</strong>. המבנה מגיע מוכן להצבה מהירה בחצר שלכם ללא צורך בהכנות שטח מורכבות.
+              רוצים להרחיב את הבית בלי כאבי ראש? אנו מספקים יחידות דיור ועבודה מודולריות מתרחבות. הקראוון מגיע כשהוא מוכן לגרירה ולקבלת רישוי מלא כחוק, ללא צורך בקבלנים, רעש, אבק או היתרי בנייה מסובכים.
             </p>
 
             <div className="hero-usp-list">
               <div className="usp-item">
+                <span className="usp-icon">🚗</span>
+                <span className="usp-text"><strong>ניידות וגרירה קלה:</strong> המבנה מוגדר כקרוואן הניתן לגרירה מהירה ופשוטה ללא יסודות קבועים בקרקע.</span>
+              </div>
+              <div className="usp-item">
+                <span className="usp-icon">📜</span>
+                <span className="usp-text"><strong>רישוי ופתרון חוקי:</strong> מבנה נייד על גלגלים המותאם לקבלת רישוי כחוק ומאפשר פשטות מקסימלית.</span>
+              </div>
+              <div className="usp-item">
                 <span className="usp-icon">⚡</span>
-                <span className="usp-text"><strong>פשטות ומהירות הצבה:</strong> מנוף מניח את המבנה בחצר, חיבור מהיר לתשתיות והחלל מוכן לשימוש באותו היום.</span>
-              </div>
-              <div className="usp-item">
-                <span className="usp-icon">🌳</span>
-                <span className="usp-text"><strong>התאמה מלאה לגינה:</strong> חיפוי טיח יוקרתי בגוון טרקוטה טבעי המשתלב בצורה מושלמת עם הצמחייה בחצר.</span>
-              </div>
-              <div className="usp-item">
-                <span className="usp-icon">💰</span>
-                <span className="usp-text"><strong>חיסכון כלכלי משמעותי:</strong> חוסכים מאות אלפי שקלים לעומת בנייה קונבנציונלית או שיפוץ יקר ומורכב.</span>
+                <span className="usp-text"><strong>חיסכון של זמן וכסף:</strong> ללא בירוקרטיה, ללא צורך בהכנות שטח מורכבות, והחלל מוכן לשימוש מיידי.</span>
               </div>
             </div>
 
@@ -334,7 +334,7 @@ function App() {
                           className="quiz-opt-btn"
                           onClick={() => handleSelectOption('access', 'גישה מאתגרת או צרה')}
                         >
-                          🧱 רחוב פנימי צר, עצים או כבלים (נצטרך תכנון מנוף)
+                          🧱 רחוב פנימי צר, מעבר נמוך או גישה צרה לגרירה
                         </button>
                         <button 
                           type="button"
@@ -491,9 +491,9 @@ function App() {
             {/* Solution 1 */}
             <div className="solution-only-card animate-hover-lift">
               <div className="sol-card-badge">מהירות מירבית ⚡</div>
-              <h3>מוכן לשימוש תוך יום אחד</h3>
+              <h3>הצבה מהירה וניידת</h3>
               <p>
-                המבנה מיוצר במפעל ומגיע מוכן להצבה מהירה בשטח. מנוף מניח אותו במיקום המדויק שבחרתם, חיבור מהיר לתשתיות – והחלל מוכן לשימוש באותו היום.
+                המבנה מיוצר במפעל ומגיע מוכן על גלגלים ישירות לחצר שלכם. גוררים אותו למיקום שבחרתם, מחברים מהיר לתשתיות – והחלל מוכן לשימוש מיידי.
               </p>
             </div>
 
@@ -828,7 +828,7 @@ function App() {
                 <div className="faq-answer animate-fade-in-up">
                   <p>
                     על מנת לספק הצעת מחיר אמינה והוגנת, אנו מתחשבים במספר פרמטרים כגון סגנון היחידה המבוקש, סוג החלונות בהתאמה אישית, 
-                    מורכבות גישת המנוף וההובלה לשטח שלכם. 
+                    מורכבות ההובלה וההצבה בשטח שלכם. 
                     <strong>אנו לא מפרסמים מחירים באתר האינטרנט</strong>, אך נציג המכירות שלנו ישמח לספק לכם הצעת מחיר מלאה ומפורטת בשיחה טלפונית קצרה לאחר שנבדוק את הגישה לגינה שלכם במפות לוויין.
                   </p>
                 </div>
